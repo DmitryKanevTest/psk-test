@@ -1,0 +1,86 @@
+//init global colors
+//c - Color
+$cBackgroundMain: #fff;
+$cBackgroundBar: rgb(57, 57, 255);
+$cTextDefault: #000;
+$cHover: rgb(128, 128, 128);
+$cBackgroundDisabled: rgba(0, 0, 0, 0.842);
+
+$cFlatStatusFree: #ff1493;
+$cFlatStatusKeyIssued: green;
+$cFlatStatusContract: #a9a9a9;
+$cFlatStatusReserve: orange;
+$cFlatSatusRegistration: #6495ed;
+
+@mixin flatDisabled {
+    background-color: rgb(238, 238, 238);
+    color: rgb(196, 196, 196);
+}
+
+@mixin btnDisabled {
+    background-color: rgb(238, 238, 238);
+    color: rgb(122, 122, 122);
+}
+
+//reset styles
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    not supported by any browser */
+}
+
+@mixin fixedFullScreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+@mixin centerPopup {
+    @include fixedFullScreen();
+    background-color: $cBackgroundDisabled;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin popupContent {
+    background-color: #fff;
+    padding: 20px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 5px $cHover;
+
+    max-height: 90%;
+    max-width: 600px;
+    overflow: auto;
+
+    h2 {
+        padding-bottom: 8px;
+        border-bottom: 1px solid black;
+    }
+
+    button:first-child {
+        position: absolute;
+        right: 15px;
+        top: 20px;
+    }
+}
